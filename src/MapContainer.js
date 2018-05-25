@@ -11,7 +11,7 @@ export default class MapContainer extends Component {
  state = {
     location: []
   }
- 
+
   componentDidUpdate() {
       this.loadMap()   
   }
@@ -21,11 +21,9 @@ export default class MapContainer extends Component {
   fetchData() {
     axios.get("http://localhost:3001")
       .then( (response) => {
-        const location =response.data;
-        this.setState({ location });
+        const location =response.data;        this.setState({ location });
       })
-      .catch( (error) => { 
-      console.log(error);
+      .catch( (error) => {       console.log(error);
       });
   }
 
@@ -45,7 +43,7 @@ componentWillMount(){
 
       const mapConfig = Object.assign({}, {
         center: {lat: 61.449762, lng: 23.859047}, // sets center of google map to Tampere City.
-        zoom: 11, // sets zoom. Lower numbers are zoomed further out.
+        zoom: 15, // sets zoom. Lower numbers are zoomed further out.
         mapTypeId: 'roadmap' // optional main map layer. Terrain, satellite, hybrid or roadmap--if unspecified, defaults to roadmap.
       })
 
